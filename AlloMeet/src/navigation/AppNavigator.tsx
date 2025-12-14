@@ -3,9 +3,11 @@ import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types/navigation';
+import { theme } from '../constants/theme';
 
-// Screens
-import HomeScreen from '../screens/HomeScreen';
+// Stacks
+import AuthStack from './AuthStack';
+import MainStack from './MainStack';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -18,24 +20,20 @@ export default function AppNavigator() {
       }}
     >
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="AuthStack"
         screenOptions={{
-          headerStyle: {
-            backgroundColor: '#6200ee',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
+          headerShown: false,
         }}
       >
         <Stack.Screen 
-          name="Home" 
-          component={HomeScreen}
-          options={{ title: 'AlloMeet' }}
+          name="AuthStack" 
+          component={AuthStack}
+        />
+        <Stack.Screen 
+          name="MainStack" 
+          component={MainStack}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-

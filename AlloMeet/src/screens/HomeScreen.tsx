@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { theme } from '../constants/theme';
 
 export default function HomeScreen() {
   return (
@@ -15,20 +16,20 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: theme.colors.background,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 20,
+    padding: theme.spacing.lg,
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#6200ee',
-    marginBottom: 10,
+    fontSize: theme.fonts.sizes.xxxl,
+    fontWeight: theme.fonts.weights.bold,
+    color: theme.colors.primary,
+    marginBottom: theme.spacing.sm,
   },
   subtitle: {
-    fontSize: 16,
-    color: '#666',
+    fontSize: theme.fonts.sizes.md,
+    color: theme.colors.textSecondary,
     textAlign: 'center',
   },
 });
